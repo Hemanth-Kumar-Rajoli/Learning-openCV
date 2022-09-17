@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 from matplotlib import pyplot as plt
 
-img = cv.imread("public/images/fruits.jpg")
+img = cv.imread("Learning-openCV/public/images/fruits.jpg")
 
 #normal blur takes center as average of kernal matrix sized
 blur = cv.blur(img,(7,7))
@@ -20,6 +20,11 @@ cv.imshow("gaussina",gausian)
 medain = cv.medianBlur(img,7)
 cv.imshow("medain",medain)
 
+#bilateral bluring  will make the pixel depending on the sourinding circular area may be at far distance also
+
+bilateral = cv.bilateralFilter(img,10,15,15)
+
+cv.imshow("bilateral filter",bilateral)
 cv.imshow("original",img)
 cv.waitKey(0)
 cv.destroyAllWindows()
